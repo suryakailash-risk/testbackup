@@ -1,4 +1,4 @@
-name: Print time
+name: Print Time
 
 on:
   schedule:
@@ -8,9 +8,12 @@ jobs:
   print_time:
     runs-on: ubuntu-latest
     steps:
-      - name: Print time
-        uses: actions/checkout@v2
-        with:
-          ref: main
-      - name: Run script
-        run: python print_time.py
+    - name: Print Time
+      uses: python:3.8
+      with:
+        python-version: 3.8
+      run: |
+        import time
+        while True:
+          print(time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime()))
+          time.sleep(5)
