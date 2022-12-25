@@ -1,0 +1,16 @@
+name: Print time
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  print_time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print time
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Run script
+        run: python print_time.py
